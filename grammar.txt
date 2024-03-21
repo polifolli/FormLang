@@ -1,0 +1,43 @@
+<sql_statement> ::= <select_statement> | <insert_statement> | <update_statement> | <delete_statement> | <create_statement> | <alter_statement> | <drop_statement>
+
+<select_statement> ::= SELECT <column_list> FROM <table_name> [WHERE <condition>] [ORDER BY <column_name> [ASC|DESC]] [LIMIT <integer>]
+
+<insert_statement> ::= INSERT INTO <table_name> [(<column_list>)] VALUES (<value_list>)
+
+<update_statement> ::= UPDATE <table_name> SET <column_name> = <value> [WHERE <condition>]
+
+<delete_statement> ::= DELETE FROM <table_name> [WHERE <condition>]
+
+<create_statement> ::= CREATE TABLE <table_name> (<column_definitions>)
+
+<alter_statement> ::= ALTER TABLE <table_name> <alter_action>
+
+<drop_statement> ::= DROP TABLE <table_name>
+
+<column_list> ::= <column_name> [, <column_name>]*
+
+<table_name> ::= [a-zA-Z]+
+
+<column_name> ::= [a-zA-Z][a-zA-Z0-9]*
+
+<column_definitions> ::= <column_definition> [, <column_definition>]*
+
+<column_definition> ::= <column_name> <data_type>
+
+<alter_action> ::= ADD COLUMN <column_definition> | RENAME <table_name> | DROP COLUMN <column_name>
+
+<condition> ::= <column_name> <operator> <value>
+
+<value_list> ::= <value> [, <value>]*
+
+<value> ::= <integer> | <string> | <boolean>
+
+<data_type> ::= INT | VARCHAR(<integer>) | BOOLEAN
+
+<operator> ::= = | != | < | > | <= | >=
+
+<string> ::= '[a-zA-Z]+'
+
+<boolean> ::= TRUE | FALSE
+
+<integer> ::= [0-9]+
